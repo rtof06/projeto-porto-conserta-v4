@@ -9,9 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+        "main-color": "#00b2e5",
+        "main-color-low-opacity": "rgb(0, 178, 229, 0.4)",
+        "sec-color": "#9E3FFE",
+        "input-color": "rgb(255, 255, 255, .7)"
+      }
     },
   },
   plugins: [],

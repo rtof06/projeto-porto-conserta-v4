@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+   h1 {
+      @apply text-5xl py-3
+   }
+
+   h3 {
+      @apply text-2xl py-2
+   }
+
+   header a img {
+      @apply w-1/2
+   }
+}
