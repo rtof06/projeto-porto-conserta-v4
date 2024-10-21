@@ -14,4 +14,10 @@
    header a img {
       @apply w-1/2
    }
+
+   .itens li a {
+      @apply text-2xl
+   }
+
+   
 }

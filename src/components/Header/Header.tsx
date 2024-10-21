@@ -1,8 +1,9 @@
-'use client'
+"use client";
 import Image from "next/image";
 import logoAmplexus from "@/public/img/logo-amplexus.png";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { mainFontFamily } from "@/app/fonts";
 
 type HeaderProps = {
   page: string;
@@ -19,28 +20,35 @@ export default function Header({ page, path, page2, path2 }: HeaderProps) {
   };
 
   return (
-    <header className="flex justify-between">
-      <Link href={"/"}>
+    <header
+      className={`${mainFontFamily.className} flex items-center justify-between p-3 bg-main-color text-white`}
+    >
+      <Link href={"/"} className="w-fit">
         <Image
           src={logoAmplexus}
           alt="Logo AmplexusTech"
           title="Página inicial"
+          className="w-1/2"
         />
       </Link>
       <nav>
-        <ul>
-          <li className="flex">
-            {page === "VOLTAR" ? (
+        <ul className="itens flex gap-4">
+          {page === "VOLTAR" ? (
+            <li>
               <Link href="#" onClick={handleGoBack}>
                 {page}
               </Link>
-            ) : (
-              <div>
+            </li>
+          ) : (
+            <>
+              <li>
                 <Link href={path2}>{page2}</Link>
+              </li>
+              <li>
                 <Link href={path}>{page}</Link>
-              </div>
-            )}
-          </li>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </header>
