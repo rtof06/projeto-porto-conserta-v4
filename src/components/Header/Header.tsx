@@ -21,9 +21,9 @@ export default function Header({ page, path, page2, path2 }: HeaderProps) {
 
   return (
     <header
-      className={`${mainFontFamily.className} flex items-center justify-between p-3 bg-main-color text-white`}
+      className={`${mainFontFamily.className} flex flex-col items-center justify-between p-3 bg-main-color text-white`}
     >
-      <Link href={"/"} className="w-fit">
+      <Link href={"/"} className="flex justify-center p-2">
         <Image
           src={logoAmplexus}
           alt="Logo AmplexusTech"
