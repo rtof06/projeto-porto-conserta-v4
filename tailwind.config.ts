@@ -12,7 +12,10 @@ const config: Config = {
         "main-color": "#00b2e5",
         "main-color-low-opacity": "rgb(0, 178, 229, 0.4)",
         "sec-color": "#9E3FFE",
-        "input-color": "rgb(255, 255, 255, .7)"
+        "white-7-opacity": "rgb(255, 255, 255, .7)",
+        "white-9-opacity": "rgb(255, 255, 255, .9)",
+        "white-5-opacity": "rgb(255, 255, 255, .5)",
+        "main-bg": "#E8F0F1"
       }
     },
   },

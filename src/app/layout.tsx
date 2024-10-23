@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className="h-screen">
+      <body className="h-screen bg-main-bg overflow-x-hidden">
         {children}
       </body>
     </html>
