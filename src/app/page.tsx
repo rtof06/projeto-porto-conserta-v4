@@ -2,12 +2,12 @@
 import { mainFontFamily, secFontFamily, titleFontFamily } from "@/app/fonts";
 import Developers from "@/components/Developers/Developers";
 import Header from "@/components/Header/Header";
-import { developers } from "@/app/developersInfo";
+import { developers } from "@/app/data/developersInfo";
 
 export default function Home() {
   return (
     <>
-      <Header page="LOGIN" path="/login" page2="OFICINAS" path2="/oficinas" />
+      <Header page="OFICINAS" path="/oficinas" page2="LOGIN" path2="/login" />
       <div className="flex flex-col items-center justify-center text-center mx-14">
         <h1 className={titleFontFamily.className}>Porto Conserta</h1>
         <h3 className={secFontFamily.className}>

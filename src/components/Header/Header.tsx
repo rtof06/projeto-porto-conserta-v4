@@ -28,24 +28,24 @@ export default function Header({ page, path, page2, path2 }: HeaderProps) {
           src={logoAmplexus}
           alt="Logo AmplexusTech"
           title="Página inicial"
-          className="w-1/2"
+          className="w-1/2 hover:brightness-125 transition-all"
         />
       </Link>
       <nav>
         <ul className="itens flex gap-4">
           {page === "VOLTAR" ? (
-            <li>
+            <li className="hover:opacity-80 transition-all">
               <Link href="#" onClick={handleGoBack}>
                 {page}
               </Link>
             </li>
           ) : (
             <>
-              <li>
-                <Link href={path2}>{page2}</Link>
-              </li>
-              <li>
+              <li className="hover:opacity-80 transition-all">
                 <Link href={path}>{page}</Link>
+              </li>
+              <li className="hover:opacity-80 transition-all">
+                <Link href={path2}>{page2}</Link>
               </li>
             </>
           )}
