@@ -46,11 +46,11 @@ export default function Login() {
   };
 
   return (
-    <div className={`${secFontFamily.className} flex flex-col items-center`}>
+    <>
       <Header page="OFICINAS" path="/oficinas" path2="/" />
-      <div className="bg-white bg-opacity-50 p-8 rounded-lg m-8">
+      <div className={`${secFontFamily.className} flex flex-col items-center bg-white bg-opacity-50 p-8 rounded-lg max-sm:py-20`}>
         <h1 className="text-center font-normal text-gray-700 pb-4">FAZER LOGIN</h1>
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-4 max-sm:w-full xl:w-1/2" onSubmit={handleSubmit}>
           <div>
             <Inputs
               type="email"
@@ -71,7 +71,7 @@ export default function Login() {
               required={true}
             />
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col gap-5">
             <label className="flex items-center gap-2">
               <input
                 type="checkbox"
@@ -81,7 +81,7 @@ export default function Login() {
               />
               Lembre-se de mim
             </label>
-            <a href="/esqueciMinhaSenha" className="text-gray-700 hover:border-b-2 hover:border-gray-700">
+            <a href="/esqueciMinhaSenha" className="w-fit text-gray-700 hover:border-b-2 hover:border-gray-700">
               Esqueceu a senha?
             </a>
           </div>
@@ -94,12 +94,12 @@ export default function Login() {
             LOGIN
           </Buttons>
         </form>
-        <div className="mt-4 p-4 rounded-lg bg-gray-200 shadow-md text-center transition duration-200 hover:bg-blue-500">
-          <a href="/cadastro" className="text-blue-500 hover:text-white">
+        <div className="mt-10 text-center">
+          <a href="/cadastro" className="p-4 rounded-lg bg-main-color shadow-md text-white transition duration-200 hover:bg-main-color-low-opacity hover:text-blue-500">
             Não possui cadastro? <strong>Cadastre-se aqui!</strong>
           </a>
         </div>
       </div>
-    </div>
+    </>
   );
 }

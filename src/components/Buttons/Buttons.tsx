@@ -22,7 +22,7 @@ export default function Buttons({
       type={type}
       id={id}
       onClick={onClick}
-      className={`${secFontFamily.className} border-0 rounded-full bg-gray-200 text-xl shadow-md cursor-pointer transition duration-200 ease-in p-2 mt-4 hover:bg-blue-500 hover:text-gray-200 disabled:cursor-not-allowed`}
+      className={`${secFontFamily.className} border-0 rounded-full text-gray-400 bg-gray-200 text-xl shadow-md cursor-pointer transition duration-200 ease-in p-2 mt-4 hover:bg-blue-500 hover:text-gray-200 enabled:bg-main-color enabled:text-white disabled:cursor-not-allowed`}
       title={title}
       disabled={disabled}
     >

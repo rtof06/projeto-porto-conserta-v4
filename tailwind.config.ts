@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         "main-color": "#00b2e5",
-        "main-color-low-opacity": "rgb(0, 178, 229, 0.4)",
+        "main-color-low-opacity": "rgb(0, 178, 229, 0.1)",
         "sec-color": "#9E3FFE",
         "white-7-opacity": "rgb(255, 255, 255, .7)",
         "white-9-opacity": "rgb(255, 255, 255, .9)",

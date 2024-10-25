@@ -25,7 +25,7 @@ export default function CardOficina({
   return (
     <div className="flex flex-col items-center">
       <button
-        className={`${secFontFamily.className} bg-gray-200 rounded-lg border-t-2 border-blue-500 p-4 m-4 cursor-pointer transition duration-200 ease-in hover:bg-blue-500 hover:text-gray-200`}
+        className={`${secFontFamily.className} bg-white rounded-lg border-t-2 border-blue-500 p-4 m-3 cursor-pointer transition duration-200 ease-in hover:bg-blue-500 hover:text-gray-200 w-56 h-full`}
         onClick={() => {
           setIsModalVisible(true);
         }}

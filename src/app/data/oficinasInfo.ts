@@ -99,5 +99,25 @@ export const oficinas: { id: number, name: string, neighbourhood: string, street
          uf: "SP",
          city: "São Paulo",
          atendimento: "DE SEG. A SEX. DAS 08:00 ÀS 18:00, SÁB. DAS 08:00 ÀS 12:00, EXCETO DOM. E FERIADOS"
+      },
+      {
+         id: 11,
+         name: "Osasco",
+         neighbourhood: "Jaguaribe",
+         street: "Av. Flora, 65",
+         phone: "(11) 3681-0934",
+         uf: "SP",
+         city: "Osasco",
+         atendimento: "DE SEG. A SEX. DAS 08:00 ÀS 18:00, SÁB. DAS 08:00 ÀS 12:00, EXCETO DOM. E FERIADOS"
+      },
+      {
+         id: 12,
+         name: "Presidente Médici",
+         neighbourhood: "Vila Menck",
+         street: " Av. Pres. Médici, 2417",
+         phone: "(11) 96074-5000",
+         uf: "SP",
+         city: "Osasco",
+         atendimento: "DE SEG. A SEX. DAS 08:00 ÀS 18:00, SÁB. DAS 08:00 ÀS 12:00, EXCETO DOM. E FERIADOS"
       }
    ]
