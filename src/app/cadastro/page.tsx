@@ -5,23 +5,21 @@ import Header from "../../components/Header/Header";
 import Inputs from "../../components/Inputs/Inputs";
 import Buttons from "../../components/Buttons/Buttons";
 import { secFontFamily } from "../fonts";
+import { checkPassword } from "../utils/passwordValidation";
+import PersonalInformationForm from "@/components/PersonalInformationForm/PersonalInformationForm";
+import AdressForm from "@/components/AdressForm/AdressForm";
+import CarInformationForm from "@/components/CarInformationForm/CarInformationForm";
 
 export default function Cadastro() {
   const router = useRouter();
 
-  const checkPassword = (pw: string, secPw: string) => {
-    if (pw !== secPw) {
-      alert("As senhas não coincidem. Por favor cheque novamente!");
-    }
-  };
-
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     checkPassword(password, secPassword);
+    alert("Cadastro realizado com sucesso!")
     router.push("/diagnostico");
   }
 
-  //   const [email, setEmail] = useState('');
   const [password, setPassword] = useState("");
   const [secPassword, setSecPassword] = useState("");
 
@@ -36,149 +34,9 @@ export default function Cadastro() {
             FAZER CADASTRO
           </h1>
           <form className="text-center" onSubmit={handleSubmit}>
-            <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-              <h2
-                className={`${secFontFamily.className} font-normal text-gray-700 text-lg text-left pt-2 col-span-full`}
-              >
-                INFORMAÇÕES PESSOAIS
-              </h2>
-              <div>
-                <Inputs
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Nome"
-                  required={true}
-                />
-              </div>
-              <div>
-                <Inputs
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  placeholder="Sobrenome"
-                  required={true}
-                />
-              </div>
-              <div>
-                <Inputs
-                  type="date"
-                  id="birthday"
-                  name="birthday"
-                  placeholder="Data de nascimento"
-                  inputMode="numeric"
-                  pattern="\d{2}/\d{2}/\d{4}"
-                  required={true}
-                />
-              </div>
-              <div>
-                <Inputs
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
-                  //  onChange={(e) => setEmail(e.target.value)}
-                  required={true}
-                />
-              </div>
-              <div>
-                <Inputs
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  placeholder="Telefone"
-                  required={true}
-                />
-              </div>
-            </section>
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <h2
-                className={`${secFontFamily.className} font-normal text-gray-700 text-lg text-left pt-2 col-span-full`}
-              >
-                ENDEREÇO
-              </h2>
-              <div>
-                <Inputs
-                  type="text"
-                  name="cep"
-                  id="cep"
-                  placeholder="CEP"
-                  required={true}
-                />
-              </div>
-              <div>
-                <Inputs
-                  type="text"
-                  name="street"
-                  id="street"
-                  placeholder="Rua e número"
-                  required={true}
-                />
-              </div>
-              <div>
-                <Inputs
-                  type="text"
-                  name="city"
-                  id="city"
-                  placeholder="Cidade"
-                  required={true}
-                />
-              </div>
-              <div>
-                <Inputs
-                  type="text"
-                  name="state"
-                  id="state"
-                  placeholder="Estado"
-                  required={true}
-                />
-              </div>
-            </section>
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <h2
-                className={`${secFontFamily.className} font-normal text-gray-700 text-lg text-left pt-2 col-span-full`}
-              >
-                DADOS DO VEÍCULO
-              </h2>
-              <div>
-                <Inputs
-                  type="text"
-                  name="brand"
-                  id="brand"
-                  placeholder="Marca"
-                  required={true}
-                />
-              </div>
-              <div>
-                <Inputs
-                  type="text"
-                  name="model"
-                  id="model"
-                  placeholder="Modelo"
-                  required={true}
-                />
-              </div>
-              <div>
-                <Inputs
-                  type="number"
-                  name="year"
-                  id="year"
-                  min={1900}
-                  max={2025}
-                  placeholder="Ano"
-                  required={true}
-                />
-              </div>
-              <div>
-                <Inputs
-                  type="text"
-                  name="plate"
-                  id="plate"
-                  placeholder="Placa"
-                  required={true}
-                />
-              </div>
-            </section>
+            <PersonalInformationForm />
+            <AdressForm />
+            <CarInformationForm />
             <section className="flex flex-col gap-4 mb-4">
               <h2
                 className={`${secFontFamily.className} font-normal text-gray-700 text-lg text-left pt-2`}
@@ -210,7 +68,6 @@ export default function Cadastro() {
                 />
               </div>
             </section>
-
             <Buttons type="submit" id="btnSingup">
               CADASTRAR
             </Buttons>
