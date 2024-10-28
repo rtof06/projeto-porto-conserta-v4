@@ -27,7 +27,7 @@ export default function Cadastro() {
 
   return (
     <>
-      <Header page="OFICINAS" path="/oficinas" page2="LOGIN" path2="/login" />
+      <Header page="LOGIN" path="/login"/>
       <div className="flex flex-col items-center font-secFontFamily overflow-x-hidden">
         <div className="bg-white bg-opacity-50 p-8 rounded-lg m-8">
           <h1

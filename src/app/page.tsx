@@ -7,7 +7,7 @@ import { developers } from "@/app/data/developersInfo";
 export default function Home() {
   return (
     <>
-      <Header page="OFICINAS" path="/oficinas" page2="LOGIN" path2="/login" />
+      <Header page="LOGIN" path="/login" />
       <div className="flex flex-col items-center justify-center text-center mx-14">
         <h1 className={titleFontFamily.className}>Porto Conserta</h1>
         <h3 className={secFontFamily.className}>

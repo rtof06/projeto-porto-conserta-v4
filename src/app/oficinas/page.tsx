@@ -6,7 +6,7 @@ import Header from "@/components/Header/Header";
 export default function Oficina() {
   return (
     <>
-      <Header page="OFICINAS" path="/oficinas" page2="LOGIN" path2="/login" />
+      <Header page="LOGIN" path="/login" />
       <div className="flex justify-center bg-white-5-opacity">
         <Background title="OFICINAS">
           <div className="grid grid-cols-4 max-sm:grid-cols-1">

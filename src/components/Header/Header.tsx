@@ -7,12 +7,10 @@ import { mainFontFamily } from "@/app/fonts";
 
 type HeaderProps = {
   page: string;
-  page2?: string;
   path: string;
-  path2: string;
 };
 
-export default function Header({ page, path, page2, path2 }: HeaderProps) {
+export default function Header({ page, path }: HeaderProps) {
   const navigate = useRouter();
 
   const handleGoBack = () => {
@@ -42,10 +40,10 @@ export default function Header({ page, path, page2, path2 }: HeaderProps) {
           ) : (
             <>
               <li className="hover:opacity-80 transition-all">
-                <Link href={path}>{page}</Link>
+                <Link href="/oficinas">OFICINAS</Link>
               </li>
               <li className="hover:opacity-80 transition-all">
-                <Link href={path2}>{page2}</Link>
+                <Link href={path}>{page}</Link>
               </li>
             </>
           )}
