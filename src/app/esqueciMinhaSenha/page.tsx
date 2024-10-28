@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
 import { secFontFamily } from '../fonts';
 
-export default function esqueceiMinhaSenha() {
+export default function EsqueceuASenha() {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
     const router = useRouter();
