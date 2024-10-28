@@ -1,11 +1,12 @@
 'use client'
 
-import { FormEvent, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { users } from '@/app/data/users';
 import Buttons from '@/components/Buttons/Buttons';
 import Header from '@/components/Header/Header';
 import Inputs from '@/components/Inputs/Inputs';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { FormEvent, useState } from 'react';
 import { secFontFamily } from '../fonts';
 
 export default function Login() {
@@ -81,9 +82,9 @@ export default function Login() {
               />
               Lembre-se de mim
             </label>
-            <a href="/esqueciMinhaSenha" className="w-fit text-gray-700 hover:border-b-2 hover:border-gray-700">
+            <Link href="/esqueciMinhaSenha" className="w-fit text-gray-700 hover:border-b-2 hover:border-gray-700">
               Esqueceu a senha?
-            </a>
+            </Link>
           </div>
           <Buttons
             type="submit"
