@@ -7,12 +7,10 @@ import { mainFontFamily } from "@/app/fonts";
 
 type HeaderProps = {
   page: string;
-  page2?: string;
   path: string;
-  path2: string;
 };
 
-export default function Header({ page, path, page2, path2 }: HeaderProps) {
+export default function Header({ page, path }: HeaderProps) {
   const navigate = useRouter();
 
   const handleGoBack = () => {
@@ -21,7 +19,7 @@ export default function Header({ page, path, page2, path2 }: HeaderProps) {
 
   return (
     <header
-      className={`${mainFontFamily.className} flex flex-col items-center justify-between p-3 bg-main-color text-white`}
+      className={`${mainFontFamily.className} flex flex-col items-center justify-center p-3 bg-main-color text-white`}
     >
       <Link href={"/"} className="flex justify-center p-2">
         <Image
@@ -42,10 +40,10 @@ export default function Header({ page, path, page2, path2 }: HeaderProps) {
           ) : (
             <>
               <li className="hover:opacity-80 transition-all">
-                <Link href={path}>{page}</Link>
+                <Link href="/oficinas">OFICINAS</Link>
               </li>
               <li className="hover:opacity-80 transition-all">
-                <Link href={path2}>{page2}</Link>
+                <Link href={path}>{page}</Link>
               </li>
             </>
           )}
