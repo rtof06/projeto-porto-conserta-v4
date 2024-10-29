@@ -1,32 +1,26 @@
-'use client'
-import Background from '@/components/Background/Background';
-import Header from '@/components/Header/Header';
-import { useRouter } from 'next/navigation';
-import { services } from '../data/servicesInfo';
+import Header from "@/components/Header/Header";
+import Background from "@/components/Background/Background";
+import Buttons from "@/components/Buttons/Buttons";
+import { services } from "../data/serviceList";
+import Link from "next/link";
 
 export default function Diagnostico() {
-    const router = useRouter();
-    document.title = "Diagnóstico";
-
-    return (
-        <>
-            <Header page="OFICINAS" path="/oficinas" path2="/" />
-            <div className="flex flex-col items-center bg-white bg-opacity-50 p-8 rounded-lg">
-                <Background title="DIAGNÓSTICO DO CARRO">
-                    <div className="flex flex-col items-center gap-4 p-4">
-                        {services.map((diagnostic) => (
-                            <button
-                                key={diagnostic.id}
-                                type="button"
-                                className="w-1/2 btn-primary"
-                                onClick={() => router.push(`/agendamento/${diagnostic.id}`)}
-                            >
-                                {diagnostic.service}
-                            </button>
-                        ))}
-                    </div>
-                </Background>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <Header page="" path="#" />
+      <div className="flex justify-center my-8">
+        <Background title="DIAGNÓSTICO DO CARRO">
+          <div className="max-sm:flex max-sm:flex-col grid grid-cols-2 items-center p-4">
+            {services.map((diagnostic) => (
+              <Link href={`/agendamento/${diagnostic.id}`} key={diagnostic.id}>
+                <Buttons type="button" id="diagnostico" key={diagnostic.id}>
+                  {diagnostic.service}
+                </Buttons>
+              </Link>
+            ))}
+          </div>
+        </Background>
+      </div>
+    </>
+  );
 }
