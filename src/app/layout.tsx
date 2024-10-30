@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Projeto Porto Conserta",
@@ -16,6 +17,8 @@ export default function RootLayout({
       <body className="h-screen bg-main-bg overflow-x-hidden">
         {children}
       </body>
+      <Footer/>
+
     </html>
   );
 }
