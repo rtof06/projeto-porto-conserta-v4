@@ -30,6 +30,7 @@ export default function Home() {
               key={dev.rm}
               name={dev.name}
               rm={dev.rm}
+              role={dev.role}
               img={dev.image}
               alt={dev.alt}
               github={dev.github}

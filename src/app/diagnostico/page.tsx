@@ -8,7 +8,7 @@ export default function Diagnostico() {
   return (
     <>
       <Header page="" path="#" />
-      <div className="flex justify-center my-8">
+      <div className="flex justify-center py-8">
         <Background title="DIAGNÓSTICO DO CARRO">
           <div className="max-sm:flex max-sm:flex-col grid grid-cols-2 items-center p-4">
             {services.map((diagnostic) => (

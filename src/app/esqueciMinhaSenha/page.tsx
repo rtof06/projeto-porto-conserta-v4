@@ -25,7 +25,7 @@ export default function EsqueceuASenha() {
 
     return (
         <>
-            <Header page="LOGIN" path="/login" path2="/" />
+            <Header page="LOGIN" path="/login" />
             <div className={`${secFontFamily.className} flex flex-col items-center bg-white bg-opacity-50 p-8 rounded-lg max-sm:py-20`}>
                 <h1 className="text-center font-normal text-gray-700 pb-4">Recuperar minha senha</h1>
                 <form className="flex flex-col gap-4 max-sm:w-full xl:w-1/2" onSubmit={emailBackup}>
@@ -37,7 +37,6 @@ export default function EsqueceuASenha() {
                             id="email"
                             onChange={(e) => setEmail(e.target.value)}
                             required={true}
-                            className="mb-4 p-2 border border-gray-300 rounded"
                         />
                     </div>
                     <Buttons

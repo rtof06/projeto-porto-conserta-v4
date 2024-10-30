@@ -7,7 +7,7 @@ export default function Oficina() {
   return (
     <>
       <Header page="VOLTAR" path="#" />
-      <div className="flex justify-center bg-white-5-opacity my-8">
+      <div className="flex justify-center bg-white-5-opacity py-8">
         <Background title="OFICINAS">
           <div className="grid grid-cols-4 max-sm:grid-cols-1">
             {oficinas.map((oficina) => (
