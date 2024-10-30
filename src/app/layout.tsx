@@ -16,9 +16,8 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className="h-screen bg-main-bg overflow-x-hidden">
         {children}
+        <Footer />
       </body>
-      <Footer/>
-
     </html>
   );
 }
