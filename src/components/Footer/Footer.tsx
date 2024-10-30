@@ -1,66 +1,74 @@
 import Image from 'next/image';
-import style from './Footer.module.css';
+import Instagram from "@/public/img/InstagramP.png";
+import Twitter from "@/public/img/TwitterX.png";
+import TikTok from "@/public/img/TikTok.png";
+import Linkedin from "@/public/img/LinkedInP.png";
+import Youtube from "@/public/img/YouTube.png";
+import Facebook from "@/public/img/Facebook.png";
+import logoAmplexus from "@/public/img/logo-amplexus.png";
+import logoPorto from "@/public/img/porto-seguro-novo-logo.png"
+
 
 export default function Footer() {
   const redesSociais = [
     {
       id: "instagram",
       link: "https://instagram.com/porto",
-      img: "/Facebook F.png",
+      img: Instagram,
       alt: "Logo Instagram"
     },
     {
       id: "twitter",
       link: "https://twitter.com/portoseguro",
-      img: "/InstagramP.png",
+      img: Twitter,
       alt: "Logo X"
     },
     {
       id: "tiktok",
       link: "https://tiktok.com/@portoseguro",
-      img: "/TikTok.png",
+      img: TikTok,
       alt: "Logo TikTok"
     },
     {
       id: "linkedin",
       link: "https://linkedin.com/company/porto",
-      img: "/LinkedInP.png",
+      img: Linkedin,
       alt: "Logo LinkedIn"
     },
     {
       id: "youtube",
       link: "https://youtube.com/portoseguro",
-      img: "/YouTube.png",
+      img: Youtube,
       alt: "Logo Youtube"
     },
     {
       id: "facebook",
       link: "https://www.facebook.com/porto",
-      img: "/TwitterX.png",
+      img: Facebook,
       alt: "Logo Facebook"
     }
   ];
 
   return (
-    <div className={style.footer}>
-      <div className={style['social-media']}>
-        <p className={style.title}>Siga nas redes sociais:</p>
-        <ul>
+    <div style={{ padding: '20px', backgroundColor: '#f1f1f1', textAlign: 'center' }}>
+      <div style={{ marginBottom: '20px' }}>
+        <p style={{ fontSize: '20px', fontWeight: 'bold' }}>Siga nas redes sociais:</p>
+        <ul style={{ listStyleType: 'none', padding: 0 }}>
           {redesSociais.map((rede) => (
-            <li key={rede.id} className={style['social-media__list']}>
-              <a href={rede.link} className={style.social}>
+            <li key={rede.id} style={{ display: 'inline-block', margin: '0 10px' }}>
+              <a href={rede.link} style={{ display: 'inline-block' }}>
                 <Image src={rede.img} alt={rede.alt} width={32} height={32} />
               </a>
             </li>
           ))}
         </ul>
       </div>
-      <div className={style.copyright}>
-        <div className={style['copyright__company']}>
-          <Image src="/logoPorto.png" alt="Logo da Porto" className={style['company-logo']} width={64} height={64} />
-          <Image src="/logoAmplexus.png" alt="Logo da Amplexus" className={style['company-logo']} width={64} height={64} />
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+          <Image src={logoPorto} alt="Logo da Porto" width={64} height={64} />
+          <Image src={logoAmplexus} alt="Logo da Amplexus" width={64} height={64} />
         </div>
-        <p className={style.copyright__text}>© 2024 Porto & FIAP</p>
+        <p style={{ fontSize: '14px', color: '#555' }}>© 2024 Porto & FIAP</p>
       </div>
     </div>
   );
