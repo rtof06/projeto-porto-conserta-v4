@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { secFontFamily } from "@/app/fonts";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import DevelopersModal from "./DevelopersModal/DevelopersModal";
 import ModalContent from "./DevelopersModal/ModalContent/ModalContent";
@@ -48,7 +49,12 @@ export default function Developers({
       </div>
       <div className="flex items-center justify-center">
         {isModalVisible && (
-          <div className="absolute top-1/2">
+          <motion.div
+            initial={{ y: 0, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.2 }}
+            className="absolute top-1/2 max-sm:relative max-sm:-my-96"
+          >
             <DevelopersModal
               isOpen={isModalVisible}
               setModalOpen={() => setIsModalVisible(!isModalVisible)}
@@ -64,7 +70,7 @@ export default function Developers({
                 key={rm}
               />
             </DevelopersModal>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

@@ -39,7 +39,7 @@ export default function ModalContent({
             <p className={`${secFontFamily.className} text-gray-800`}>{role}</p>
           </div>
         </section>
-        <h2 className="text-black">Redes sociais</h2>
+        <h2 className={`${mainFontFamily.className} text-black`}>Redes sociais</h2>
         <div className="flex flex-row justify-center items-center gap-4">
           <a
             href={instagram}

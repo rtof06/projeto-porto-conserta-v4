@@ -1,4 +1,4 @@
-import { Lexend, Fredoka, Francois_One } from "next/font/google"
+import { Lexend, Fredoka, Poppins } from "next/font/google"
 
 export const mainFontFamily = Lexend({
    subsets: ['latin'],
@@ -10,8 +10,8 @@ export const secFontFamily = Fredoka({
    variable: '--sec-font-family'
 }
 )
-export const titleFontFamily = Francois_One({
-   weight: '400',
+export const titleFontFamily = Poppins({
+   weight: '700',
    subsets: ['latin'],
    variable: '--title-font-family'
 }

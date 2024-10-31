@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <Header page="LOGIN" path="/login" />
       <div className="flex flex-col items-center justify-center text-center mx-14 2xl:px-44">
-        <h1 className={titleFontFamily.className}>Porto Conserta</h1>
+        <h1 className={`${titleFontFamily.className} mt-4 text-title-color`}>Porto Conserta</h1>
         <h3 className={secFontFamily.className}>
           Um jeito fácil de manter o seu carro <span>sempre</span> saudável.
         </h3>
@@ -21,7 +21,7 @@ export default function Home() {
         </p>
       </div>
       <section className="my-4 text-center text-white">
-        <h2 className={`${titleFontFamily.className} text-black text-2xl p-5`}>
+        <h2 className={`${titleFontFamily.className} text-title-amplexus-color text-2xl p-5`}>
           Time Amplexus Technology
         </h2>
         <div className="flex justify-center gap-6 flex-wrap">

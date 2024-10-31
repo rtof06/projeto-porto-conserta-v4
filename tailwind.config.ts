@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         "main-color": "#00b2e5",
         "main-color-low-opacity": "rgb(0, 178, 229, 0.1)",
+        "title-amplexus-color": "#002D72",
         "sec-color": "#9E3FFE",
         "white-7-opacity": "rgb(255, 255, 255, .7)",
         "white-9-opacity": "rgb(255, 255, 255, .9)",
