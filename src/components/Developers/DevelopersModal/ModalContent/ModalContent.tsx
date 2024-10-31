@@ -35,7 +35,7 @@ export default function ModalContent({
             className="rounded-full w-1/2 border-2 border-transparent shadow-md"
           />
           <div>
-            <h1 className={`${mainFontFamily.className} text-black text-4xl`}>{name}</h1>
+            <h1 className={`${mainFontFamily.className} text-black text-xl`}>{name}</h1>
             <p className={`${secFontFamily.className} text-gray-800`}>{role}</p>
           </div>
         </section>

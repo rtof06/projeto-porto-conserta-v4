@@ -46,9 +46,9 @@ export default function Developers({
         <p className="text-lg text-black">{name}</p>
         <p className="text-base text-black">{rm}</p>
       </div>
-      <div className="flex justify-center">
+      <div className="flex items-center justify-center">
         {isModalVisible && (
-          <div className="absolute top-1/2 z-100">
+          <div className="absolute top-1/2">
             <DevelopersModal
               isOpen={isModalVisible}
               setModalOpen={() => setIsModalVisible(!isModalVisible)}
