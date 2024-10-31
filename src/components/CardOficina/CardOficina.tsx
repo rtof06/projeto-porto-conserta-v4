@@ -1,7 +1,8 @@
-'use client'
-import { useState } from 'react';
-import ModalOficina from './ModalOficina/ModalOficina';
-import { secFontFamily } from '@/app/fonts';
+"use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import ModalOficina from "./ModalOficina/ModalOficina";
+import { secFontFamily } from "@/app/fonts";
 
 type CardOficinaProps = {
   title: string;
@@ -36,12 +37,14 @@ export default function CardOficina({
         isOpen={isModalVisible}
         setModalOpen={() => setIsModalVisible(!isModalVisible)}
       >
-        <div className={`${secFontFamily.className}`}>
+        <motion.div
+          className={`${secFontFamily.className}`}
+        >
           <h2 className="text-2xl font-bold">{title}</h2>
           <p className="text-lg">{adress}</p>
           <p className="text-lg">{phone}</p>
           <p className="text-base">{info}</p>
-        </div>
+        </motion.div>
       </ModalOficina>
     </div>
   );

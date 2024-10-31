@@ -29,7 +29,7 @@ export default function Agendamento() {
     <>
       <Header page="DIAGNÓSTICO" path="/diagnostico" />
       <div
-        className={`${secFontFamily.className} flex justify-center h-full my-8`}
+        className={`${secFontFamily.className} flex justify-center h-full py-8`}
       >
         <Background title="AGENDAMENTO DE SERVIÇO">
           <h2 className="bg-gray-200 rounded-lg border-t-2 border-blue-500 shadow-md m-4 p-4">

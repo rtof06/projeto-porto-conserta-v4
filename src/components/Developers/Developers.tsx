@@ -7,6 +7,7 @@ import ModalContent from "./DevelopersModal/ModalContent/ModalContent";
 type DevelopersProps = {
   name: string;
   rm: string;
+  role: string;
   img: string;
   alt: string;
   linkedin: string;
@@ -17,6 +18,7 @@ type DevelopersProps = {
 export default function Developers({
   name,
   rm,
+  role,
   img,
   alt,
   github,
@@ -44,21 +46,27 @@ export default function Developers({
         <p className="text-lg text-black">{name}</p>
         <p className="text-base text-black">{rm}</p>
       </div>
-      {isModalVisible && (
-        <div className="absolute z-50">
-          <DevelopersModal
-            isOpen={isModalVisible}
-            setModalOpen={() => setIsModalVisible(!isModalVisible)}
-          >
-            <ModalContent
-              github={github}
-              instagram={instagram}
-              linkedin={linkedin}
-              key={rm}
-            />
-          </DevelopersModal>
-        </div>
-      )}
+      <div className="flex items-center justify-center">
+        {isModalVisible && (
+          <div className="absolute top-1/2">
+            <DevelopersModal
+              isOpen={isModalVisible}
+              setModalOpen={() => setIsModalVisible(!isModalVisible)}
+            >
+              <ModalContent
+                name={name}
+                alt={alt}
+                role={role}
+                picture={img}
+                github={github}
+                instagram={instagram}
+                linkedin={linkedin}
+                key={rm}
+              />
+            </DevelopersModal>
+          </div>
+        )}
+      </div>
     </section>
   );
 }

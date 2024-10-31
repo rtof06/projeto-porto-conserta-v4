@@ -13,10 +13,10 @@ type DeveloperCardProps = {
   }: DeveloperCardProps) {
     if (isOpen) {
       return (
-        <div className="bg-white-9-opacity rounded-lg shadow-lg p-4 relative">
+        <div className="bg-white-9-opacity rounded-lg shadow-lg p-4">
           {children}
           <button
-            className={`${secFontFamily.className} text-black mt-5 p-2 rounded-lg bg-main-color text-lg cursor-pointer transition duration-200 ease-in hover:text-white hover:bg-red-600`}
+            className={`${secFontFamily.className} text-black mt-3 p-2 rounded-lg bg-main-color text-lg cursor-pointer transition duration-200 ease-in hover:text-white hover:bg-red-600`}
             onClick={setModalOpen}
           >
             Fechar
