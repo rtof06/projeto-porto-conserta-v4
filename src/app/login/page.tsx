@@ -1,6 +1,5 @@
 "use client";
 
-import { users } from "@/app/data/users";
 import Buttons from "@/components/Buttons/Buttons";
 import Header from "@/components/Header/Header";
 import Inputs from "@/components/Inputs/Inputs";
@@ -27,24 +26,29 @@ export default function Login() {
     return validateEmail(username) && validatePassword(password);
   };
 
-  const validateLogin = () => {
-    return users.some(
-      (user) => username === user.email && password === user.password
-    );
-  };
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      setLoading(true);
-      if (validateLogin()) {
+      const response = await fetch(`${apiUrl}/users/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: username, password }),
+      });
+
+      if (response.ok) {
         router.push("/diagnostico");
       } else {
         alert("Usuário ou senha incorretos");
       }
-      setLoading(false);
     } catch (err) {
       alert("Algo deu errado." + err);
+    } finally {
+      setLoading(false);
     }
   };
 
