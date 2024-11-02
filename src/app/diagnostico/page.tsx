@@ -1,3 +1,4 @@
+'use client'
 import Header from "@/components/Header/Header";
 import Background from "@/components/Background/Background";
 import Buttons from "@/components/Buttons/Buttons";
@@ -32,7 +33,7 @@ export default function Diagnostico() {
             {servico.map((diagnostic) => (
               <Link href={`/agendamento/${diagnostic.id}`} key={diagnostic.id}>
                 <Buttons type="button" id="diagnostico" key={diagnostic.id}>
-                  {diagnostic.name}
+                  {diagnostic.nome}
                 </Buttons>
               </Link>
             ))}

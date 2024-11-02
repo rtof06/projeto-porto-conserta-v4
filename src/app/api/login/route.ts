@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
    if (req.method === "GET") {
       try {
-         const response = await fetch(`${apiUrl}/oficinas`);
+         const response = await fetch(`${apiUrl}/login`);
          const data = await response.json();
          res.status(200).json(data);
       } catch (err) {

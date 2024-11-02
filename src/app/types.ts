@@ -10,5 +10,5 @@ export interface CentrosAutomotivos {
 
 export interface Servico {
   id: number;
-  name: string;
+  nome: string;
 };
