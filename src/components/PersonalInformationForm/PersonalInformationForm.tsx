@@ -1,17 +1,27 @@
 import Inputs from "@/components/Inputs/Inputs";
 import { secFontFamily } from "@/app/fonts";
-import { useEffect } from "react";
 
-export default function PersonalInformationForm() {
-  useEffect(() => {
-    const dateInput = document.getElementById("birthday") as HTMLInputElement;
-    if (dateInput) {
-      dateInput.placeholder = "DD/MM/AAAA";
-      dateInput.onfocus = () => (dateInput.placeholder = "");
-      dateInput.onblur = () => (dateInput.placeholder = "DD/MM/AAAA");
-    }
-  }, []);
+type PersonalInformationFormProps = {
+  name: string;
+  lastName: string;
+  mail: string;
+  phone: string;
+  setNome: (value: string) => void;
+  setSobrenome: (value: string) => void;
+  setEmail: (value: string) => void;
+  setTelefone: (value: string) => void;
+};
 
+export default function PersonalInformationForm({
+  name,
+  lastName,
+  mail,
+  phone,
+  setNome,
+  setSobrenome,
+  setEmail,
+  setTelefone,
+}: PersonalInformationFormProps) {
   return (
     <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
       <h2
@@ -25,6 +35,8 @@ export default function PersonalInformationForm() {
           name="name"
           id="name"
           placeholder="Nome"
+          value={name}
+          onChange={(e) => setNome(e.target.value)}
           required={true}
         />
       </div>
@@ -34,6 +46,8 @@ export default function PersonalInformationForm() {
           name="lastName"
           id="lastName"
           placeholder="Sobrenome"
+          value={lastName}
+          onChange={(e) => setSobrenome(e.target.value)}
           required={true}
         />
       </div>
@@ -54,7 +68,8 @@ export default function PersonalInformationForm() {
           name="email"
           id="email"
           placeholder="Email"
-          //  onChange={(e) => setEmail(e.target.value)}
+          value={mail}
+          onChange={(e) => setEmail(e.target.value)}
           required={true}
         />
       </div>
@@ -64,12 +79,14 @@ export default function PersonalInformationForm() {
           name="phone"
           id="phone"
           placeholder="Telefone"
+          value={phone}
+          onChange={(e) => setTelefone(e.target.value)}
           required={true}
         />
       </div>
       <div>
         <Inputs
-          type="number"
+          type="string"
           name="cpf"
           id="CPF"
           placeholder="CPF"

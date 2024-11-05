@@ -12,20 +12,55 @@ import CarInformationForm from "@/components/CarInformationForm/CarInformationFo
 
 export default function Cadastro() {
   const router = useRouter();
-
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    checkPassword(password, secPassword);
-    alert("Cadastro realizado com sucesso!")
-    router.push("/diagnostico");
-  }
-
+  const [nome, setNome] = useState("");
+  const [sobrenome, setSobrenome] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
   const [password, setPassword] = useState("");
   const [secPassword, setSecPassword] = useState("");
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!checkPassword(password, secPassword)) {
+      alert("As senhas não coincidem!");
+      return;
+    }
+
+    const cliente = {
+      nome,
+      sobrenome,
+      email,
+      telefone,
+      password,
+    };
+
+    try {
+      const response = await fetch(`${apiUrl}/clientes`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cliente),
+      });
+
+      if (response.ok) {
+        alert("Cadastro realizado com sucesso!");
+        router.push("/diagnostico");
+      } else {
+        const errorData = await response.json();
+        alert(`Erro: ${errorData.message}`);
+      }
+    } catch (err) {
+      console.log(nome, sobrenome, email, telefone, password);
+      alert("Erro ao cadastrar cliente: " + err);
+    }
+  };
+
   return (
     <>
-      <Header page="LOGIN" path="/login"/>
+      <Header page="LOGIN" path="/login" />
       <div className="flex flex-col items-center font-secFontFamily overflow-x-hidden">
         <div className="bg-white bg-opacity-50 p-8 rounded-lg m-8">
           <h1
@@ -34,7 +69,16 @@ export default function Cadastro() {
             FAZER CADASTRO
           </h1>
           <form className="text-center" onSubmit={handleSubmit}>
-            <PersonalInformationForm />
+            <PersonalInformationForm
+              name={nome}
+              lastName={sobrenome}
+              mail={email}
+              phone={telefone}
+              setNome={setNome}
+              setSobrenome={setSobrenome}
+              setEmail={setEmail}
+              setTelefone={setTelefone}
+            />
             <AdressForm />
             <CarInformationForm />
             <section className="flex flex-col gap-4 mb-4">
