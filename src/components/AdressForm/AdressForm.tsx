@@ -24,7 +24,7 @@ export default function AdressForm() {
           type="text"
           name="street"
           id="street"
-          placeholder="Rua e número"
+          placeholder="Rua"
           required={true}
         />
       </div>

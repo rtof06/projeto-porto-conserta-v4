@@ -1,5 +1,4 @@
 "use client";
-
 import Buttons from "@/components/Buttons/Buttons";
 import Header from "@/components/Header/Header";
 import Inputs from "@/components/Inputs/Inputs";
@@ -9,7 +8,7 @@ import { FormEvent, useState } from "react";
 import { secFontFamily } from "../fonts";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -23,7 +22,7 @@ export default function Login() {
   };
 
   const validateInputs = () => {
-    return validateEmail(username) && validatePassword(password);
+    return validateEmail(email) && validatePassword(password);
   };
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -32,13 +31,15 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch(`${apiUrl}/users/login`, {
+      
+      const response = await fetch(`${apiUrl}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email: username, password }),
+        body: JSON.stringify({ email, password }),
       });
+
 
       if (response.ok) {
         router.push("/diagnostico");
@@ -71,7 +72,7 @@ export default function Login() {
               placeholder="Email"
               name="email"
               id="email"
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               required={true}
             />
           </div>

@@ -1,19 +1,48 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextRequest, NextResponse } from 'next/server';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(request: NextRequest) {
+  const { email, password } = await request.json();
 
-   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-   if (req.method === "GET") {
-      try {
-         const response = await fetch(`${apiUrl}/login`);
-         const data = await response.json();
-         res.status(200).json(data);
-      } catch (err) {
-         res.status(500).json({ message: 'Algo deu errado.', err })
-      }
-   } else {
-      res.setHeader('Allow', ['GET']);
-      res.status(405).end(`Método ${req.method} não autorizado`)
-   }
+    if (response.ok) {
+      const data = await response.json();
+      return NextResponse.json(data);
+    } else {
+      const errorData = await response.json();
+      return NextResponse.json(errorData, { status: response.status });
+    }
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
+  }
+}
+
+export async function GET() {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return NextResponse.json(data);
+    } else {
+      const errorData = await response.json();
+      return NextResponse.json(errorData, { status: response.status });
+    }
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
+  }
 }
