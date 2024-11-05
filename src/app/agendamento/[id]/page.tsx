@@ -11,9 +11,9 @@ import { secFontFamily } from "@/app/fonts";
 
 export default function Agendamento() {
   const router = useRouter();
-  const { id } = useParams(); // Extrai o parâmetro 'id' diretamente
+  const { id } = useParams();
   const [selectedOficina, setSelectedOficina] = useState("");
-  const [servico, setServico] = useState<Servico[]>([]);
+  const [selectedServicoName, setSelectedServicoName] = useState("");
   const [oficina, setOficina] = useState<CentrosAutomotivos[]>([]);
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -36,9 +36,10 @@ export default function Agendamento() {
     const fetchServicos = async () => {
       try {
         const response = await fetch(`${apiUrl}/servicos/${id}`);
-        const data = await response.json();
+        if (!response.ok) throw new Error("Failed to fetch service");
+        const data: Servico = await response.json();
         console.log("Dados do serviço:", data);
-        setServico([data]);
+        setSelectedServicoName(data.nome);
       } catch (err) {
         console.error("Serviço não encontrado", err);
       }
@@ -66,7 +67,7 @@ export default function Agendamento() {
       >
         <Background title="AGENDAMENTO DE SERVIÇO">
           <h2 className="bg-gray-200 rounded-lg border-t-2 border-blue-500 shadow-md m-4 p-4">
-            Serviço selecionado: {servico.length > 0 ? servico[0].nome : "Carregando..."}
+            Serviço selecionado: {selectedServicoName}
           </h2>
           <div className="flex flex-col items-center">
             <label htmlFor="oficina" className="text-lg text-gray-700 mb-2">
