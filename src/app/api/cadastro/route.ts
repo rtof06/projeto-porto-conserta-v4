@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function PUT(req: NextApiRequest, res: NextApiResponse) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   if (req.method === "PUT") {
